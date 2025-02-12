@@ -1,6 +1,6 @@
-<<<<<<< HEAD
+ HEAD
 # Hogwarts_2025
-=======
+
 # README
 
 This README would normally document whatever steps are necessary to get the
@@ -25,4 +25,4 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
->>>>>>> a086a1d (Initial commit)
+ a086a1d (Initial commit)
