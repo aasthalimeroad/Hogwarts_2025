@@ -1,2 +1,17 @@
-<h1>Houses#index</h1>
-<p>Find me in app/views/houses/index.html.erb</p>
+
+<% if @houses.empty? %>
+   <p> all houses are empty !</p>
+<% else %>
+    <% @houses.each do |house| %>
+    <h2><%= house.name %></h2> 
+    <p>
+    There are <%= house.students.count %> students in this house.
+    </p>
+    <p>
+    The Students here have acculumated <% house.points %> points.
+    </p>
+    <p>
+    Learn More about this  <%= link_to "house #{house.name}" , house %>
+    </p>
+    <% end %>
+<% end %>
