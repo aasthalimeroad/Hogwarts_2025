@@ -1,0 +1,14 @@
+<h1>List of Students </h1>
+<% if @students.empty? %>
+    <p> There are no Students in the house </p>
+<% else %>
+  <ul>
+     <% @students.each do |student|%>
+        <li><%= link_to student.name, student_path(student) %> of House 
+        <%= link_to student.house.name , student.house %>
+        </li> 
+
+    <%end%>
+  </ul>
+
+<% end %>

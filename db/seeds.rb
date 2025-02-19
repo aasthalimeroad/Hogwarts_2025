@@ -12,8 +12,14 @@ NUMBER_OF_HOUSES.times do
     number_of_students = rand(10..15)
     number_of_students.times do
         house.students.create(name: Faker::Movies::HarryPotter.unique.character)
+    end 
+
+    number_of_teachers = rand(2..5)
+    number_of_teachers.times do 
+        house.teachers.create(name: Faker::Movies::HarryPotter.unique.character)
     end
 end
 
 puts "Created #{House.count} Houses."
-puts "Created #{Student.count} Students"
+puts "Created #{Student.count} Students."
+puts "Created #{Teacher.count} Teachers."

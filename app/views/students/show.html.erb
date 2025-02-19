@@ -1,0 +1,14 @@
+<h1><%= @student.name %></h1>
+<p>
+This Student belongs to <%= link_to @student.house.name, house_path(@student.house)%> House 
+</p>
+<h2> Teachers of <%=@student.name %></h2>
+<% if @student.house.teachers.empty?%>
+  <p> There are no teachers for <%= @student.name %></p>
+<%else %>
+ <% @student.house.teachers.each do |teacher|%>
+    <li>
+     <%= link_to teacher.name, teacher_path(teacher) %>
+    </li>
+  <% end %>
+<%end%>

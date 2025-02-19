@@ -1,10 +1,10 @@
 <h2><%= @house.name %></h2>
 <p>
-There are <%= @house.students.count %> in <%= @house.name %> house
+There are <%= @house.students.count %> students and <%=@house.teachers.count%> teachers in <%= @house.name %> house
 </p>
 
 <p>
-The students of <%= @house.name %> have collected <%= @house.points %> points
+The students and teachers of <%= @house.name %> have collected <%= @house.points %> points
 </p>
 
 <h3>
@@ -16,10 +16,25 @@ The students of <%= @house.name %> have collected <%= @house.points %> points
   <h3> List of Students: </h3>
    <ul>
     <% @house.students.each do |student|%>
-    <li> <%= student.name %></li>
+    <li> <%= link_to student.name , student_path(student) %></li>
     <% end %>
    </ul>
 <% end %>
+ 
+<h3>List of Teachers</h3>
+   <% if @house.teachers.empty? %>
+     
+    <p> There are no teachers in this house</p>
+  
+   <% else %>
+   
+  <% @house.teachers.each do |teacher|%>
+    <li>
+      <%= link_to teacher.name, teacher_path(teacher) %>
+      
+    </li>
+    <%end%>
+</ul>
+<%end%>
 
-<%= link_to 'HOME', root_path %>
 
