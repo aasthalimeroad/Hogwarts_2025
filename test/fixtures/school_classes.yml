@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  teacher: one
+  student: one
+  class_time: 2025-02-19 11:08:46
+
+two:
+  teacher: two
+  student: two
+  class_time: 2025-02-19 11:08:46

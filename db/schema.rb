@@ -10,12 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_02_18_062853) do
+ActiveRecord::Schema[7.1].define(version: 2025_02_19_053845) do
   create_table "houses", force: :cascade do |t|
     t.string "name"
     t.integer "points"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "school_classes", force: :cascade do |t|
+    t.integer "teacher_id", null: false
+    t.integer "student_id", null: false
+    t.datetime "class_time"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["student_id"], name: "index_school_classes_on_student_id"
+    t.index ["teacher_id"], name: "index_school_classes_on_teacher_id"
   end
 
   create_table "students", force: :cascade do |t|
@@ -34,6 +44,8 @@ ActiveRecord::Schema[7.1].define(version: 2025_02_18_062853) do
     t.index ["house_id"], name: "index_teachers_on_house_id"
   end
 
+  add_foreign_key "school_classes", "students"
+  add_foreign_key "school_classes", "teachers"
   add_foreign_key "students", "houses"
   add_foreign_key "teachers", "houses"
 end

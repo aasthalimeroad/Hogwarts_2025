@@ -12,3 +12,18 @@ This Student belongs to <%= link_to @student.house.name, house_path(@student.hou
     </li>
   <% end %>
 <%end%>
+
+<h2>Class scheduled for : <%= @student.name%></h2>
+<%if @student.school_class.empty?%>
+  <p>No class scheduled :)
+  </br>
+  Enjoy!!
+  </p>
+<%else%>
+  <% @student.school_class.each do |school|%>
+    <li>
+    <%= link_to school.teacher.name, school.teacher %> at 
+    <%= school.class_time%>
+    </li>
+  <%end%>
+<%end%>
